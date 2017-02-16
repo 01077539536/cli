@@ -31,7 +31,7 @@ type FakeStartActor struct {
 		result2 v2action.Warnings
 		result3 error
 	}
-	StartApplicationStub        func(app v2action.Application, client v2action.NOAAClient, config v2action.Config) (<-chan *v2action.LogMessage, <-chan error, <-chan string, <-chan error)
+	StartApplicationStub        func(app v2action.Application, client v2action.NOAAClient, config v2action.Config) (<-chan *v2action.LogMessage, <-chan error, <-chan bool, <-chan string, <-chan error)
 	startApplicationMutex       sync.RWMutex
 	startApplicationArgsForCall []struct {
 		app    v2action.Application
@@ -41,8 +41,9 @@ type FakeStartActor struct {
 	startApplicationReturns struct {
 		result1 <-chan *v2action.LogMessage
 		result2 <-chan error
-		result3 <-chan string
-		result4 <-chan error
+		result3 <-chan bool
+		result4 <-chan string
+		result5 <-chan error
 	}
 	invocations      map[string][][]interface{}
 	invocationsMutex sync.RWMutex
@@ -120,7 +121,7 @@ func (fake *FakeStartActor) GetApplicationSummaryByNameAndSpaceReturns(result1 v
 	}{result1, result2, result3}
 }
 
-func (fake *FakeStartActor) StartApplication(app v2action.Application, client v2action.NOAAClient, config v2action.Config) (<-chan *v2action.LogMessage, <-chan error, <-chan string, <-chan error) {
+func (fake *FakeStartActor) StartApplication(app v2action.Application, client v2action.NOAAClient, config v2action.Config) (<-chan *v2action.LogMessage, <-chan error, <-chan bool, <-chan string, <-chan error) {
 	fake.startApplicationMutex.Lock()
 	fake.startApplicationArgsForCall = append(fake.startApplicationArgsForCall, struct {
 		app    v2action.Application
@@ -132,7 +133,7 @@ func (fake *FakeStartActor) StartApplication(app v2action.Application, client v2
 	if fake.StartApplicationStub != nil {
 		return fake.StartApplicationStub(app, client, config)
 	} else {
-		return fake.startApplicationReturns.result1, fake.startApplicationReturns.result2, fake.startApplicationReturns.result3, fake.startApplicationReturns.result4
+		return fake.startApplicationReturns.result1, fake.startApplicationReturns.result2, fake.startApplicationReturns.result3, fake.startApplicationReturns.result4, fake.startApplicationReturns.result5
 	}
 }
 
@@ -148,14 +149,15 @@ func (fake *FakeStartActor) StartApplicationArgsForCall(i int) (v2action.Applica
 	return fake.startApplicationArgsForCall[i].app, fake.startApplicationArgsForCall[i].client, fake.startApplicationArgsForCall[i].config
 }
 
-func (fake *FakeStartActor) StartApplicationReturns(result1 <-chan *v2action.LogMessage, result2 <-chan error, result3 <-chan string, result4 <-chan error) {
+func (fake *FakeStartActor) StartApplicationReturns(result1 <-chan *v2action.LogMessage, result2 <-chan error, result3 <-chan bool, result4 <-chan string, result5 <-chan error) {
 	fake.StartApplicationStub = nil
 	fake.startApplicationReturns = struct {
 		result1 <-chan *v2action.LogMessage
 		result2 <-chan error
-		result3 <-chan string
-		result4 <-chan error
-	}{result1, result2, result3, result4}
+		result3 <-chan bool
+		result4 <-chan string
+		result5 <-chan error
+	}{result1, result2, result3, result4, result5}
 }
 
 func (fake *FakeStartActor) Invocations() map[string][][]interface{} {
