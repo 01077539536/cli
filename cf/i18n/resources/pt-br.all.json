@@ -5076,7 +5076,15 @@
     "translation": "Tempo limite de início do app\n\nDICA: O aplicativo deve estar atendendo na porta correta. Em vez de codificar permanentemente a porta, use a variável de ambiente $PORT."
   },
   {
+    "id": "Start app timeout\n\nTIP: Application must be listening on the right port. Instead of hard coding the port, use the $PORT environment variable.\n\nUse '{{.BinaryName}} logs {{.AppName}} --recent' for more information",
+    "translation": ""
+  },
+  {
     "id": "Start command:",
+    "translation": ""
+  },
+  {
+    "id": "Start unsuccessful\n\nTIP: use '{{.BinaryName}} logs {{.AppName}} --recent' for more information",
     "translation": ""
   },
   {
@@ -5972,6 +5980,10 @@
     "translation": "AVISO: Esta operação é interna para o Cloud Foundry; os brokers de serviço não vão ser contatados e os recursos para instâncias de serviço não serão alterados. O caso de uso primário dessa operação é substituir um broker de serviço que implementa a API do Broker de serviço v1 por um broker que implementa a API v2, remapeando instâncias de serviço de planos v1 para planos v2.  Recomendamos tornar o plano v1 privado ou encerrar o broker v1 para evitar a criação de instâncias adicionais. Depois que as instâncias de serviço tiverem sido migradas, os serviços e os planos v1 poderão ser removidos do Cloud Foundry."
   },
   {
+    "id": "Waiting for app to start...",
+    "translation": ""
+  },
+  {
     "id": "Warning: Insecure http API endpoint detected: secure https API endpoints are recommended",
     "translation": ""
   },
@@ -6622,6 +6634,10 @@
   {
     "id": "{{.AppInstanceLimit}} app instance limit",
     "translation": "{{.AppInstanceLimit}} limite de instância do app"
+  },
+  {
+    "id": "{{.AppName}} failed to stage within {{.Timeout}} minutes",
+    "translation": ""
   },
   {
     "id": "{{.BinaryName}} version {{.VersionString}}",
