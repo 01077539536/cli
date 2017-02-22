@@ -1200,6 +1200,10 @@
     "translation": "Error removing plugin binary: "
   },
   {
+    "id": "Error restarting application: {{.Message}}\n\nTIP: Use '{{.BuildpackCommand}}' to see a list of supported buildpacks.",
+    "translation": "Error restarting application: {{.Message}}\n\nTIP: Use '{{.BuildpackCommand}}' to see a list of supported buildpacks."
+  },
+  {
     "id": "Error running task: {{.CloudControllerMessage}}",
     "translation": ""
   },
@@ -2041,10 +2045,6 @@
   },
   {
     "id": "{{.Message}}\nNote that this command requires CF API version 3.0.0+.",
-    "translation": ""
-  },
-  {
-    "id": "{{.Message}}\\n\\nTIP: Use '{{.BuildpackCommand}}' to see a list of supported buildpacks.",
     "translation": ""
   }
 ]
